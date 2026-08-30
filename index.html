@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#111014" />
+  <title>Vetty's Beauties</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="sticky-status">
+    <span>Cash <strong id="sticky-cash">$10,000</strong></span>
+    <span>Week <strong id="sticky-week">1</strong></span>
+    <span>Building <strong id="sticky-building">1</strong></span>
+    <span>Capacity <strong id="sticky-capacity">1/2</strong></span>
+  </div>
+
+  <header class="topbar">
+    <div>
+      <p id="location-eyebrow" class="eyebrow">BELTON, TEXAS</p>
+      <h1>Vetty's Beauties <span class="version-label">v1.9</span></h1>
+      <p class="subtitle">You inherited a dump. Try not to make it worse.</p>
+    </div>
+    <div class="cash-card"><span>Cash</span><strong id="cash">$10,000</strong></div>
+  </header>
+
+  <main>
+    <details class="panel" open>
+      <summary>Locations</summary>
+      <div id="locations"></div>
+    </details>
+
+    <details class="panel" open>
+      <summary>Building</summary>
+      <section class="hero">
+        <div id="building-art"></div>
+        <div>
+          <p class="eyebrow">PROPERTY OVERVIEW</p>
+          <h2>Building Level <span id="building-level">1</span> / 5</h2>
+          <p>Week: <strong id="week">1</strong></p>
+          <p>Capacity: <strong><span id="capacity-used">1</span>/<span id="capacity">2</span> performers</strong></p>
+          <p>Every facility upgrade adds <strong>5%</strong> to gross club revenue. Upgrade all seven facilities before advancing the building.</p>
+          <button id="building-upgrade" disabled>Upgrade Building - $2,000</button>
+          <p id="building-requirement" class="muted">All facilities must reach Level 2 first.</p>
+        </div>
+      </section>
+
+      <details class="subpanel" open>
+        <summary>Facilities</summary>
+        <p class="muted">Each Level 1 to 2 upgrade costs $1,000.</p>
+        <div id="facilities" class="grid"></div>
+      </details>
+    </details>
+
+    <details class="panel" open>
+      <summary>Property Manager</summary>
+      <div id="property-manager"></div>
+    </details>
+
+    <details class="panel" open>
+      <summary>Performers</summary>
+      <div class="performer-layout">
+        <div class="roster-column">
+          <details class="subpanel" open>
+            <summary>Working</summary>
+            <div id="working-performers" class="roster-list"></div>
+          </details>
+          <details class="subpanel">
+            <summary>Training</summary>
+            <div id="training-performers" class="roster-list"></div>
+          </details>
+          <details class="subpanel" open>
+            <summary>Available Contracts</summary>
+            <p id="market-status" class="muted">Signing fee: $1,000.</p>
+            <div id="recruitment" class="grid performer-grid"></div>
+          </details>
+          <details class="subpanel">
+            <summary>Former Performers</summary>
+            <div id="former-performers" class="roster-list"></div>
+          </details>
+        </div>
+        <section id="profile" class="profile card"></section>
+      </div>
+    </details>
+
+    <details class="panel">
+      <summary>Promotions</summary>
+      <p class="muted">Promotions cost $1,000 times the current Building Level. Each one rolls from -100% to +100% and lasts one week.</p>
+      <div id="promotions" class="grid promotions-grid"></div>
+    </details>
+
+    <details class="panel" open>
+      <summary>Weekly Ledger</summary>
+      <section class="ledger">
+        <div id="ledger"></div>
+      </section>
+    </details>
+
+    <section class="advance-week-bar">
+      <button id="advance-week" class="primary advance-week-button">Advance One Week</button>
+      <p id="message" class="message">Ted says everything is under control. This is not reassuring.</p>
+    </section>
+
+    <details class="panel">
+      <summary>Club History</summary>
+      <div id="club-history" class="history-list"></div>
+    </details>
+
+    <details class="panel settings">
+      <summary>Settings / Game</summary>
+      <button id="new-game" class="danger">New Game</button>
+      <p class="muted">Starting over erases the local save and restores the canonical Week 1 setup.</p>
+    </details>
+  </main>
+
+  <section id="notification-overlay" class="notification-overlay" aria-live="assertive"></section>
+
+  <script src="src/data.js"></script>
+  <script src="src/economy.js"></script>
+  <script src="src/contracts.js"></script>
+  <script src="src/locations.js"></script>
+  <script src="src/managers.js"></script>
+  <script src="src/state.js"></script>
+  <script src="src/training.js"></script>
+  <script src="src/upgrades.js"></script>
+  <script src="src/render.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>
